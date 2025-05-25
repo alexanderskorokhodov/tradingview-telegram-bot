@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 import logging
 import json
-from telegram import send_telegram_message
+from app.telegram import send_telegram_message
 
 app = FastAPI()
 logging.basicConfig(level=logging.INFO)
