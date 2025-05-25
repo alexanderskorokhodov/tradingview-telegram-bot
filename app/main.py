@@ -11,5 +11,7 @@ async def webhook_handler(request: Request):
     data = await request.json()
     message = data.get("message", json.dumps(data, indent=2))
     logging.info(f"Received alert: {message}")
-    await send_telegram_message(f"\ud83d\udcf1 *TradingView Alert*:\n```\n{message}\n```")
+    # Ensure the message is properly encoded
+    safe_message = message.encode('utf-16', 'surrogatepass').decode('utf-16')
+    await send_telegram_message(f"\U0001F4F1 *TradingView Alert*:\n```\n{safe_message}\n```")
     return {"status": "ok"} 
