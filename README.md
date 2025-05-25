@@ -23,7 +23,7 @@ project_root/
 ### Initial Setup
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-repo/tradingview-telegram-alerts.git
+   git clone https://github.com/alexanderskorokhodov/tradingview-telegram-bot
    cd tradingview-telegram-alerts
    ```
 
@@ -123,3 +123,7 @@ docker build --build-arg TELEGRAM_BOT_TOKEN=your_telegram_bot_token \
 
 ### TradingView Alerts Configuration
 - **Webhook URL**: `
+
+## Repository
+
+You can find the project repository on GitHub at the following link: [tradingview-telegram-bot](https://github.com/alexanderskorokhodov/tradingview-telegram-bot)
