@@ -150,15 +150,15 @@ PM2 can be used to manage the FastAPI application, providing features like proce
 
 4. **View logs**:
    ```bash
-   pm2 logs alert-bot
+   pm2 logs TV-Alerts
    ```
 
 5. **Stop the application**:
    ```bash
-   pm2 stop alert-bot
+   pm2 stop TV-Alerts
    ```
 
 6. **Restart the application**:
    ```bash
-   pm2 restart alert-bot
+   pm2 restart TV-Alerts
    ```
