@@ -84,7 +84,7 @@ PM2 can be used to manage the FastAPI application, providing features like proce
 ### TradingView Alerts Configuration
 
 - **Webhook URL**: `http://yourdomain.com/webhook`
-- **Message**: `{{strategy.order.alert_message}}`
+- **Message**: `{"message":"{{strategy.order.alert_message}}"}`
 
 ## License
 This project is licensed under the MIT License.
