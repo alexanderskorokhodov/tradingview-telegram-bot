@@ -53,13 +53,13 @@ project_root/
 
 2. **Run the container**
    ```bash
-   docker run -d -p 8080:8080 --name alert-bot tradingview-telegram-bot
+   docker run -d -p 80:80 --name alert-bot tradingview-telegram-bot
    ```
 
 3. [Optional] **Expose the service to the internet**
    - Use `ngrok` or configure DNS + HTTPS proxy:
      ```bash
-     ngrok http 8080
+     ngrok http 80
      ```
 
 ### Environment Variables in Docker
@@ -71,10 +71,10 @@ You can manage your Telegram credentials in Docker using the following methods:
 Run the Docker container with environment variables:
 
 ```bash
-docker run -d -p 8080:8080 --name alert-bot \
+docker run -d -p 80:80 --name alert-bot \
   -e TELEGRAM_BOT_TOKEN=your_telegram_bot_token \
   -e TELEGRAM_CHAT_ID=your_telegram_chat_id \
-  tradingview-alert-bot
+  tradingview-telegram-bot
 ```
 
 #### Option 2: Use a `.env` File with Docker
@@ -89,7 +89,7 @@ docker run -d -p 8080:8080 --name alert-bot \
 2. Run the Docker container using the `--env-file` option:
 
    ```bash
-   docker run -d -p 8080:8080 --name alert-bot --env-file .env tradingview-telegram-bot
+   docker run -d -p 80:80 --name alert-bot --env-file .env tradingview-telegram-bot
    ```
 
 #### Option 3: Build-time Environment Variables
@@ -109,8 +109,8 @@ ARG TELEGRAM_CHAT_ID
 ENV TELEGRAM_BOT_TOKEN=$TELEGRAM_BOT_TOKEN
 ENV TELEGRAM_CHAT_ID=$TELEGRAM_CHAT_ID
 
-EXPOSE 8080
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8080"]
+EXPOSE 80
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
 ```
 
 Build the Docker image with build arguments:
@@ -118,12 +118,47 @@ Build the Docker image with build arguments:
 ```bash
 docker build --build-arg TELEGRAM_BOT_TOKEN=your_telegram_bot_token \
              --build-arg TELEGRAM_CHAT_ID=your_telegram_chat_id \
-             -t tradingview-alert-bot .
+             -t tradingview-telegram-bot .
 ```
 
 ### TradingView Alerts Configuration
-- **Webhook URL**: `
+- **Webhook URL**: `http://yourdomain.com/webhook`
+- **Message**: `{{strategy.order.alert_message}}`
 
 ## Repository
 
 You can find the project repository on GitHub at the following link: [tradingview-telegram-bot](https://github.com/alexanderskorokhodov/tradingview-telegram-bot)
+
+### Running with PM2
+
+PM2 can be used to manage the FastAPI application, providing features like process management and monitoring.
+
+1. **Install PM2** (if not already installed):
+   ```bash
+   npm install pm2 -g
+   ```
+
+2. **Start the application using PM2**:
+   ```bash
+   pm2 start ecosystem.config.js
+   ```
+
+3. **Check the status of the application**:
+   ```bash
+   pm2 status
+   ```
+
+4. **View logs**:
+   ```bash
+   pm2 logs alert-bot
+   ```
+
+5. **Stop the application**:
+   ```bash
+   pm2 stop alert-bot
+   ```
+
+6. **Restart the application**:
+   ```bash
+   pm2 restart alert-bot
+   ```
