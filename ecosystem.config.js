@@ -1,9 +1,9 @@
 module.exports = {
   apps: [
     {
-      name: "alert-bot",
+      name: "TV-Alerts",
       script: "uvicorn",
-      args: "app.main:app --host 0.0.0.0 --port 8080",
+      args: "app.main:app --host 0.0.0.0 --port 80",
       interpreter: "none"
     }
   ]
