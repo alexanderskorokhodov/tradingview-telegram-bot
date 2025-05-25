@@ -24,7 +24,7 @@ project_root/
 1. **Clone the repository**
    ```bash
    git clone https://github.com/alexanderskorokhodov/tradingview-telegram-bot
-   cd tradingview-telegram-alerts
+   cd tradingview-telegram-bot
    ```
 
 2. **Create a virtual environment and activate it**
@@ -48,12 +48,12 @@ project_root/
 ### Docker Setup
 1. **Build the Docker container**
    ```bash
-   docker build -t tradingview-alert-bot .
+   docker build -t tradingview-telegram-bot .
    ```
 
 2. **Run the container**
    ```bash
-   docker run -d -p 8080:8080 --name alert-bot tradingview-alert-bot
+   docker run -d -p 8080:8080 --name alert-bot tradingview-telegram-bot
    ```
 
 3. [Optional] **Expose the service to the internet**
@@ -89,7 +89,7 @@ docker run -d -p 8080:8080 --name alert-bot \
 2. Run the Docker container using the `--env-file` option:
 
    ```bash
-   docker run -d -p 8080:8080 --name alert-bot --env-file .env tradingview-alert-bot
+   docker run -d -p 8080:8080 --name alert-bot --env-file .env tradingview-telegram-bot
    ```
 
 #### Option 3: Build-time Environment Variables
