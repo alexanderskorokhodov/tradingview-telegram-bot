@@ -11,7 +11,9 @@ project_root/
 │   ├── telegram.py          # Telegram send logic
 │   └── config.py            # Token & Chat ID settings
 ├── Dockerfile               # Docker container setup
-└── requirements.txt         # Python dependencies
+├── ecosystem.config.js      # PM2 ecosystem file
+├── requirements.txt         # Python dependencies
+└── .gitignore               # Git ignore file
 ```
 
 ## Setup Instructions
@@ -90,3 +92,15 @@ This project is licensed under the MIT License.
 ## Repository
 
 You can find the project repository on GitHub at the following link: [tradingview-telegram-bot](https://github.com/alexanderskorokhodov/tradingview-telegram-bot)
+
+## Additional Setup Instructions
+
+### Environment Setup
+- Ensure that the `.env` file is correctly set up with your Telegram credentials.
+- The `env/` directory is used for the Python virtual environment. Ensure it is activated before running the application.
+
+### Running Tests
+- If there are any tests, describe how to run them here.
+
+### Additional Tools
+- Mention any additional tools or scripts that are part of the project.
